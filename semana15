@@ -1,1 +1,59 @@
+//José Javier Vega de León | 1297325
+using System;
 
+namespace Programaestudiantesurl
+{
+    class Estudiante
+    {
+        public string Nombre;
+        public int Edad;
+        public string Carrera;
+        public string Carnet;
+        public double NotaAdmision;
+
+        public void MostrarResumen()
+        {
+            Console.WriteLine("Resumen del Estudiante");
+            Console.WriteLine($"Nombre: {Nombre}");
+            Console.WriteLine($"Edad: {Edad}");
+            Console.WriteLine($"Carrera: {Carrera}");
+            Console.WriteLine($"Carnet: {Carnet}");
+            Console.WriteLine($"Nota de Admisión: {NotaAdmision}");
+        }
+        public bool PuedeMatricular()
+        {
+            return NotaAdmision >= 75 && Carnet.EndsWith("2025");
+        }
+    }
+    class Programa
+    {
+        static void Main(string[] args)
+        {
+            Estudiante estudiante = new Estudiante();
+
+            Console.WriteLine("Ingrese su nombre y un apellido: ");
+            estudiante.Nombre = Console.ReadLine();
+            Console.WriteLine("Ingrese su Edad: ");
+            estudiante.Edad = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Ingrese su Carrera: ");
+            estudiante.Carrera = Console.ReadLine();
+            Console.WriteLine("Ingrese su Carnet: ");
+            estudiante.Carnet = Console.ReadLine();
+            Console.WriteLine("Ingrese su Nota: ");
+            estudiante.NotaAdmision = Convert.ToDouble(Console.ReadLine());
+
+            estudiante.MostrarResumen();
+
+            if (estudiante.PuedeMatricular())
+            {
+                Console.WriteLine("El estudiante SI PUEDE matricularse");
+            }
+            else
+            {
+                Console.WriteLine("El estudiante NO PUEDE matricularse");
+            }
+
+
+        }
+    }
+}
